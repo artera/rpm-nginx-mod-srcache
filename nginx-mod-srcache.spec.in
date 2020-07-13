@@ -42,7 +42,6 @@ Transparent subrequest-based caching layout for arbitrary nginx locations.
 
 %build
 cd %{_builddir}/nginx-%{_nginxver}
-export CFLAGS="$CFLAGS -Wno-error=cast-function-type"
 ./configure --with-compat --add-dynamic-module=../%{_modname}-nginx-module-%{version}
 make modules
 
