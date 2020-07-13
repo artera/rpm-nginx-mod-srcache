@@ -15,7 +15,6 @@ Source0: https://nginx.org/download/nginx-%{_nginxver}.tar.gz
 Source1: https://github.com/openresty/srcache-nginx-module/archive/v%{version}/%{_modname}-%{version}.tar.gz
 
 Requires: nginx = 1:%{_nginxver}
-BuildRequires: nginx
 BuildRequires: libtool
 BuildRequires: autoconf
 BuildRequires: automake
@@ -44,7 +43,7 @@ Transparent subrequest-based caching layout for arbitrary nginx locations.
 %build
 cd %{_builddir}/nginx-%{_nginxver}
 export CFLAGS="$CFLAGS -Wno-error=cast-function-type"
-./configure %(nginx -V 2>&1 | grep 'configure arguments' | sed -r 's@^[^:]+: @@') --add-dynamic-module=../%{_modname}-nginx-module-%{version}
+./configure --with-compat --add-dynamic-module=../%{_modname}-nginx-module-%{version}
 make modules
 
 %install
