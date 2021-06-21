@@ -1,7 +1,7 @@
 Summary: Transparent subrequest-based caching layout for arbitrary nginx locations
 Name: nginx-mod-srcache
 Version: 0.32
-Release: 2%{?dist}
+Release: 3%{?dist}
 Vendor: Artera
 URL: https://github.com/openresty/srcache-nginx-module
 
