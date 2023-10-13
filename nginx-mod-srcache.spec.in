@@ -1,3 +1,13 @@
+# Build against OpenSSL 3 on EL8
+%if 0%{?rhel} == 8
+%global openssl_pkgversion 3
+%endif
+
+# Build against OpenSSL 3 on EL8
+%if 0%{?rhel} == 8
+%global openssl_pkgversion 3
+%endif
+
 Summary: Transparent subrequest-based caching layout for arbitrary nginx locations
 Name: nginx-mod-srcache
 Version: 0.33
@@ -19,8 +29,8 @@ BuildRequires: nginx
 BuildRequires: libtool
 BuildRequires: autoconf
 BuildRequires: automake
-BuildRequires: openssl-devel
-BuildRequires: pcre-devel
+BuildRequires: openssl%{?openssl_pkgversion}-devel
+BuildRequires: pcre2-devel
 BuildRequires: zlib-devel
 BuildRequires: perl-devel
 BuildRequires: gd-devel
